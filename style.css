@@ -1,0 +1,108 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 9px;
+}
+body{
+    /* background: rgb(191, 205, 246); */
+    
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    /* height: 100vh; */
+    padding: 2rem;
+}
+
+main{
+    background-color: #E1F8DC;
+    /* padding: 1rem; */
+    padding: 7.5rem 2.5rem 8rem 2.5rem;
+    border-radius: 10rem 0;
+    width: 100%;
+}
+
+.app-container{
+    /* background: #2e8b57; */
+    padding: 0.3rem;
+    width: 100%;
+    
+}
+.txt-container{
+    max-width: 750px;
+    /* background: teal; */
+    text-transform: capitalize;
+    /* padding: 1rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.txt-container .logo{
+
+    font-size: 2rem;
+    /* background-color:  rgb(71, 71, 71); */
+    
+}
+.txt-container .des{padding-top: 1.9rem;font-size: 2.2rem;font-weight: 700;}
+.input-container{
+    /* background-color: tan; */
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 3rem 0.5rem 1.5rem 0.5rem;
+}
+input{
+    width: 45%;
+    padding: 1rem 0;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+button{
+    background-color: #25D366;
+    padding: 1.1rem 3.5rem 1.2rem 3.5rem;
+    border: none;
+    margin: 3rem 0;
+    color: white;
+    font-size: 1.67em;
+    font-weight: 700;
+    border-radius: 3px;
+    /* transition-property: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s; */
+}
+button:hover{
+   /* filter: brightness(110%);
+   transform: translateY(100px); */
+    
+}
+.text-cnt{
+    /* background-color: violet; */
+    padding: 1rem;
+    list-style: none;
+}
+.text-cnt .li{
+    padding: 1.5rem 0 0.8rem 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: Bleck;
+}
+.nested-ul{padding: 1rem;}
+.nested-ul .hint-li,.number-turns{
+    color: teal;
+    padding: 0.5rem 0 0 1.1rem;
+    font-weight: 700;
+    list-style: none;
+    font-size: 1.8rem;
+}
+/* 
+ media query */
+
