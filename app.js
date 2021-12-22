@@ -26,7 +26,7 @@ let startGame = (status)=>{
             
             if(input.value==""){
                 setTimeout(()=>{
-                    let alert = createElement('p','alert','Please Inoput valid number')
+                    let alert = createElement('p','alert','Please Input valid number')
                     alert.style="color:red;text-align:center;font-size:2.1rem;font-weight:700"
                     main.appendChild(alert);
 
