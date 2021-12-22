@@ -151,7 +151,12 @@ let startGame = (status)=>{
                    lostCnt.appendChild(createElement("button",'restart',"Restart"))
                   let restartBtn = document.querySelector('.restart');
                   let li = document.querySelectorAll('.li');
-                  lostCnt.appendChild(createElement("h1","lost-msg","You Lost Try Again"));
+                  let showNumber = createElement('h1','guess-show',`correct number was ${randomNumber}`);
+                  showNumber.style="padding-bottom:1.2rem;color:orangered"
+                  lostCnt.appendChild(showNumber)
+                  let lostMsg = createElement("h1","lost-msg","You Lost Try Again")
+                  lostMsg.style="color:red"
+                  lostCnt.appendChild(lostMsg);
 
                   restartBtn.addEventListener('click',()=>{
                       li = Array.from(li);
