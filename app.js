@@ -26,7 +26,7 @@ let startGame = (status)=>{
             
             if(input.value==""){
                 setTimeout(()=>{
-                    let alert = createElement('p','alert','valid number')
+                    let alert = createElement('p','alert','Please Inoput valid number')
                     alert.style="color:red;text-align:center;font-size:2.1rem;font-weight:700"
                     main.appendChild(alert);
 
@@ -39,13 +39,21 @@ let startGame = (status)=>{
 
             
             if(Number(input.value)===randomNumber){
+                numberOfTurns= numberOfTurns-1;
+                let mileStone = 8 - numberOfTurns;
                 input.value="";
                 let nestedUL = createElement('ul','nested-ul ul',"")
                 let winLi = createElement('li','win-li li',"Correct");
-                let winMsg = createElement('li',"win-msg li",`You Won the Game . your guess is ${input.value}`);
-                winMsg.style="list-style:none;padding:1.2rem 0 0.4rem 0rem;font-size:2.5rem;font-weight:bold"
+                let winMsg = createElement('li',"win-msg-li li",`You Won the Game`);
+                let guessMsgLi = createElement('li',"guess-msg-li",`your guess is ${randomNumber}`);
+                let mileStoneLi = createElement("li",'milestone-msg-li',`youv'e guessed in ${mileStone} turns`)
+               
+                winMsg.style="list-style:none;padding:1.2rem 0 0.4rem 0rem;font-size:2.8rem;font-weight:bold;color:#25D366"
                 nestedUL.appendChild(winMsg);
+                nestedUL.appendChild(guessMsgLi);
+                nestedUL.appendChild(mileStoneLi);
                 winLi.appendChild(nestedUL)
+
 
                 
                 txtContainer.appendChild(winLi);

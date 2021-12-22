@@ -97,6 +97,11 @@ button:hover{
     font-weight: bold;
     color: Bleck;
 }
+.nested-ul .guess-msg-li,.milestone-msg-li{
+    color:#09ac44;list-style: none;
+    padding: 0.5rem 0;
+    font-size: 2.1rem;
+}
 .nested-ul{padding: 1rem;}
 .nested-ul .hint-li,.number-turns{
     color: teal;
