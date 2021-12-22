@@ -12,7 +12,8 @@ function createElement(tag,cls,txt){
 let startGame = (status)=>{
 
     let input = document.querySelector('input');
-    let main = document.querySelector("main")
+    let main = document.querySelector("main");
+    let lostCnt = document.querySelector('.lost-cnt');
     if(status===true){
         let randomNumber = Math.floor(Math.random()*100)+1;
         let numberOfTurns = 8;
@@ -22,7 +23,23 @@ let startGame = (status)=>{
        
         console.log(randomNumber);
         submitBtn.addEventListener("click",()=>{
+            
+            if(input.value==""){
+                setTimeout(()=>{
+                    let alert = createElement('p','alert','valid number')
+                    alert.style="color:red;text-align:center;font-size:2.1rem;font-weight:700"
+                    main.appendChild(alert);
+
+                    setTimeout(()=>{
+                        alert.remove()
+                    },350)
+                },10)
+               
+            }else{
+
+            
             if(Number(input.value)===randomNumber){
+                input.value="";
                 let nestedUL = createElement('ul','nested-ul ul',"")
                 let winLi = createElement('li','win-li li',"Correct");
                 let winMsg = createElement('li',"win-msg li",`You Won the Game . your guess is ${input.value}`);
@@ -33,14 +50,14 @@ let startGame = (status)=>{
                 
                 txtContainer.appendChild(winLi);
                 console.log(txtContainer);
-                input.value="";
+               
                 input.disabled=true;
                 submitBtn.disabled=true;
                 let allLists = document.querySelectorAll('.li');
                  console.log(winLi,winMsg);
             //   console.log(txtContainer.hasChildNodes());
   
-                main.appendChild(createElement("button",'restart',"Restart"));
+                lostCnt.appendChild(createElement("button",'restart',"Restart"));
                 let restartBtn = document.querySelector(".restart");
                 restartBtn.addEventListener("click",()=>{
                     input.disabled=false;
@@ -49,7 +66,7 @@ let startGame = (status)=>{
                    submitBtn.disabled=false;
                    restartBtn.remove()
                    numberOfTurns= 9;
-                   
+                   location.reload();
                    
                 })
                   
@@ -62,12 +79,14 @@ let startGame = (status)=>{
                let nestedUL = createElement('ul','nested-ul','');
                 wrongLi.style="font-size:3rem"
             //    console.log(wrongLi,nestedUL);
+
         
                if(numberOfTurns>0){
                 // console.log("test");
                
                 if(Math.abs(randomNumber-input.value)>20){
                     if(randomNumber-input.value<0){
+                        input.value="";
                         let hintLi = createElement('li','hint-li li',`Hint:You are Far from Number  Go Below`);
                         let numberTurnsLi = createElement('li','number-turns',`Number of Turns Left: ${numberOfTurns}`);
                         nestedUL.appendChild(hintLi);
@@ -75,9 +94,11 @@ let startGame = (status)=>{
                         wrongLi.appendChild(nestedUL)
                         console.log(wrongLi);
                         txtContainer.appendChild(wrongLi);
+                     
 
                        
                     }else if(randomNumber-input.value>0){
+                        input.value="";
                         // txtContainer.appendChild(createElement("p","msg",`wrong you got ${numberOfTurns-1} left You Are Far Away \n go above`))
                         let hintLi = createElement('li','hint-li li',`Hint:You are far from the Number  Go Above`);
                         let numberTurnsLi = createElement('li','number-turns',`Number of Turns Left: ${numberOfTurns}`);
@@ -89,6 +110,7 @@ let startGame = (status)=>{
                     }
                 }else if(Math.abs(randomNumber-input.value<=20)){
                     if(randomNumber-input.value<0){
+                        input.value="";
                         // txtContainer.appendChild(createElement("p","msg",`wrong you got ${numberOfTurns-1} left You Close go below`))
                         let hintLi = createElement('li','hint-li li',`Hint:You are close to Number  Go Below`);
                         let numberTurnsLi = createElement('li','number-turns',`Number of Turns Left: ${numberOfTurns}`);
@@ -98,6 +120,7 @@ let startGame = (status)=>{
                         txtContainer.appendChild(wrongLi)
 
                     }else if(randomNumber-input.value>0){
+                        input.value=""
                         // txtContainer.appendChild(createElement("p","msg",`wrong you got ${numberOfTurns-1} left You Close go above`))
                         let hintLi = createElement('li','hint-li li',`Hint:You are Close to Number  Go Above`);
                         let numberTurnsLi = createElement('li','number-turns',`Number of Turns Left: ${numberOfTurns}`);
@@ -107,18 +130,21 @@ let startGame = (status)=>{
                         txtContainer.appendChild(wrongLi)
 
                     }
-                    input.value='';
+                    // input.value='';
                
                 }
             
                 
               
                }else{
+                input.value="";
                    input.disabled=true;
                    submitBtn.disabled=true;
-                   main.appendChild(createElement("button",'restart',"Restart"))
+                   lostCnt.appendChild(createElement("button",'restart',"Restart"))
                   let restartBtn = document.querySelector('.restart');
                   let li = document.querySelectorAll('.li');
+                  lostCnt.appendChild(createElement("h1","lost-msg","You Lost Try Again"));
+
                   restartBtn.addEventListener('click',()=>{
                       li = Array.from(li);
                       li.forEach(item=>item.remove())
@@ -126,6 +152,7 @@ let startGame = (status)=>{
                       submitBtn.disabled=false;
                       restartBtn.remove();
                       numberOfTurns = 9;
+                      location.reload();
                       
                     //   input.focus();
                   
@@ -136,6 +163,7 @@ let startGame = (status)=>{
                
 
             }
+        }
 
         })
         
