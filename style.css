@@ -23,8 +23,9 @@ main{
     /* padding: 1rem; */
     padding: 7.5rem 2.5rem 8rem 2.5rem;
     border-radius: 10rem 0;
-    width: 100%;
+    width: 95%;
     position: relative;
+    max-width: 700px;
 }
 
 .app-container{
@@ -35,7 +36,9 @@ main{
     
 }
 .txt-container{
-    max-width: 750px;
+    margin: 0 auto;
+    max-width: 1050px;
+   
     /* background: teal; */
     text-transform: capitalize;
     /* padding: 1rem; */
@@ -78,9 +81,7 @@ button{
     font-size: 1.67em;
     font-weight: 700;
     border-radius: 3px;
-    /* transition-property: all;
-    transition-timing-function: ease-in-out;
-    transition-duration: 1s; */
+    cursor: pointer;
 }
 button:hover{
    /* filter: brightness(110%);
@@ -121,3 +122,6 @@ button:hover{
 /* 
  media query */
 
+/* @media screen and (min-width:700px) and (max-width:1600px) {
+     
+} */

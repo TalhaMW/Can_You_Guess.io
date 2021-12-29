@@ -14,6 +14,8 @@ let startGame = (status)=>{
     let input = document.querySelector('input');
     let main = document.querySelector("main");
     let lostCnt = document.querySelector('.lost-cnt');
+    input.addEventListener("click",(e)=>{e.target.style="border:2px solid green;padding:1.2rem"})
+    
     if(status===true){
         let randomNumber = Math.floor(Math.random()*100)+1;
         let numberOfTurns = 8;
